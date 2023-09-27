@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
             isScrollControlled: true,
             builder: (_) => Padding(
               padding: MediaQuery.of(context).viewInsets,
-              child: const AddBottomSheet(),
+              child: AddBottomSheet(),
             ));
       },
         child: const Icon(Icons.add),);
@@ -49,8 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
              },
              currentIndex: currentSelectedTabIndex,
              items: const [
-           const BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
-           const BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
+           BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
+           BottomNavigationBarItem(icon: Icon(Icons.settings), label: ""),
          ]),
        );
 

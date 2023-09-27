@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:todo_sun_c9/models/todo_dm.dart';
 import 'package:todo_sun_c9/ui/utils/app_colors.dart';
 import 'package:todo_sun_c9/ui/utils/app_theme.dart';
 
 class TodoWidget extends StatelessWidget {
-  const TodoWidget({super.key});
+  final TodoDM model;
+  const TodoWidget({super.key,required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +35,13 @@ class TodoWidget extends StatelessWidget {
             children: [
               const VerticalDivider(),
               const SizedBox(width: 12,),
-              const Expanded(
+              Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text("Play basketball", style: AppTheme.taskTitleTextStyle,),
-                    Text("Description",
+                    Text(model.title, style: AppTheme.taskTitleTextStyle,),
+                    Text(model.description,
                       textAlign: TextAlign.start,
                       style: AppTheme.taskDescriptionTextStyle,)
                   ],
