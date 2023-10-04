@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_sun_c9/models/todo_dm.dart';
+import 'package:todo_sun_c9/ui/providers/list_provider.dart';
 import 'package:todo_sun_c9/ui/utils/app_colors.dart';
 import 'package:todo_sun_c9/ui/utils/app_theme.dart';
 import 'package:todo_sun_c9/ui/widgets/my_text_field.dart';
@@ -15,9 +17,11 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   DateTime selectedDate = DateTime.now();
+  late ListProvider provider;
 
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of(context);
     return Container(
       padding: const EdgeInsets.all(12),
       height: MediaQuery.of(context).size.height * .4,
@@ -53,6 +57,7 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
   }
 
   void addTodoToFirestore()  {
+
    CollectionReference todosCollectionRef =
    FirebaseFirestore.instance.collection(TodoDM.collectionName);
 
@@ -64,6 +69,7 @@ class _AddBottomSheetState extends State<AddBottomSheet> {
        "date": selectedDate,
        "isDone": false,
    }).timeout(Duration(milliseconds: 300), onTimeout: (){
+     provider.refreshTodosList();
      Navigator.pop(context);
    });
    //todosCollectionRef.add();

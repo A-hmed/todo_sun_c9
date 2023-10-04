@@ -20,7 +20,9 @@ class TodoWidget extends StatelessWidget {
           extentRatio: .25,
           children: [
             SlidableAction(
-              onPressed: (_){},
+              onPressed: (_){
+
+              },
               backgroundColor: Colors.red,
               foregroundColor: AppColors.white,
               icon: Icons.delete,

@@ -28,9 +28,6 @@ abstract class AppTheme{
       unselectedItemColor: AppColors.grey
     ),
     scaffoldBackgroundColor: AppColors.accent,
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        shape: StadiumBorder(side: BorderSide(color: AppColors.white, width: 4))
-    ),
     dividerTheme: DividerThemeData(thickness: 3, color: AppColors.primiary),
   );
   static ThemeData darkTheme =  ThemeData();
